@@ -104,7 +104,7 @@ async function getKattisProblems() {
       lang: getLanguage(file.name),
     };
   }));
-  
+  console.log(problems)
   return problems;
 }
 
