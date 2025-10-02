@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Kattis Solutions</title>
+  <style>
+    body { font-family: sans-serif; margin: 2rem; background: #fdfdfd; }
+    h1 { margin-bottom: 2rem; }
+    .solution {
+      margin-bottom: 2rem;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background: #fafafa;
+    }
+    .solution h2 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.2rem;
+    }
+    pre {
+      background: #272822;
+      color: #f8f8f2;
+      padding: 1rem;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-family: monospace;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>My Kattis Solutions</h1>
+  <div id="problems">Loading...</div>
+
+  <script>
+    async function loadProblems() {
+      const repo = "EliotTexK/solve";
+      const dir = "kattis";
+
+      // List files in /kattis
+      const res = await fetch(`https://api.github.com/repos/${repo}/contents/${dir}`);
+      const files = await res.json();
+
+      // For each file, get last commit and file contents
+      const problems = await Promise.all(files.map(async (file) => {
+        const commitRes = await fetch(`https://api.github.com/repos/${repo}/commits?path=${dir}/${file.name}&per_page=1`);
+        const commits = await commitRes.json();
+
+        const contentRes = await fetch(file.download_url);
+        const content = await contentRes.text();
+
+        return {
+          name: file.name,
+          date: commits[0].commit.author.date,
+          content: content
+        };
+      }));
+
+      // Sort newest first
+      problems.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+      // Render
+      const container = document.getElementById("problems");
+      container.innerHTML = "";
+      problems.forEach(p => {
+        const div = document.createElement("div");
+        div.className = "solution";
+        div.innerHTML = `
+          <h2>${p.name} – ${new Date(p.date).toLocaleDateString()}</h2>
+          <pre><code>${escapeHtml(p.content)}</code></pre>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    // Escape HTML for safe code display
+    function escapeHtml(str) {
+      return str.replace(/[&<>"']/g, (m) => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+      }[m]));
+    }
+
+    loadProblems();
+  </script>
+</body>
+</html>
