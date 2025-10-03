@@ -1,6 +1,6 @@
 async function loadProblems() {
   const repo = "EliotTexK/eliottexk.github.io";
-  const dir = "kattis";
+  const dir = "problems/kattis";
 
   // List files in /kattis
   const res = await fetch(`https://api.github.com/repos/${repo}/contents/${dir}`);

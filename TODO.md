@@ -20,8 +20,6 @@ Cat emoji [10 Kinds of People](open.kattis.com/problems/10kindsofpeople)    Diff
 
 This is a flood-fill (bfs) problem which bla bla bla... ( LaTeX )
 
-code block starts here
-
 ```cpp
 #include <iostream>
 #include <vector>
@@ -73,8 +71,16 @@ Math emoji The Pythagorean Theorem
 
 embed LaTeX
 
+...
+
+click to expand (like Discord)
+
 7. Blogpost category
 
 Book emoji MegaMiner
 
 embed Markdown ( syntax highlighting for code snippets )
+
+click to expand (like Discord)
+
+8. Filter by problem type (small, top right, dropdown)
