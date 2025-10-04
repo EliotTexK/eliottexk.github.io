@@ -1,3 +1,8 @@
+#!/bin/bash
+# Generate problem index so that we don't have to retrieve it from the API every time
+
+REPO=$1
+
 mkdir -p problems
 echo "[" > problems/index.json
 first=true
@@ -15,6 +20,6 @@ for file in $(find problems/kattis -type f); do
     fi
 
     # Escape double quotes in JSON strings
-    echo "  {\"type\": \"Kattis\", \"name\": \"$name\", \"date\": \"$date\", \"lang\": \"$lang\", \"solutionContentURL\": \"https://raw.githubusercontent.com/${{ github.repository }}/main/$file\"}" >> problems/index.json
+    echo "  {\"type\": \"Kattis\", \"name\": \"$name\", \"date\": \"$date\", \"lang\": \"$lang\", \"solutionContentURL\": \"https://raw.githubusercontent.com/$REPO/main/$file\"}" >> problems/index.json
 done
 echo "]" >> problems/index.json
