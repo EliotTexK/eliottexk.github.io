@@ -20,6 +20,7 @@ for file in $(find problems/kattis -type f); do
     fi
 
     # Escape double quotes in JSON strings
-    echo "  {\"type\": \"Kattis\", \"name\": \"$name\", \"date\": \"$date\", \"lang\": \"$lang\", \"solutionContentURL\": \"https://raw.githubusercontent.com/$REPO/main/$file\"}" >> problems/index.json
+    echo "  {\"type\":\"Kattis\",\"name\":\"$name\",\"date\":\"$date\",\"lang\": \"$lang\",\"solutionContentURL\":\"$file\"}" >> problems/index.json
 done
 echo "]" >> problems/index.json
+

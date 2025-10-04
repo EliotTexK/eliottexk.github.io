@@ -93,13 +93,8 @@ async function renderKattisProblem(problem) {
 
 // Get a map from dates to problems
 async function mapDatesToProblems() {
-  // For each file, get last commit and file contents
-  const kattisProblems = await getKattisProblems();
-
-  // TODO: other problem types go here
-
-  // Concatenate all problems
-  const problems = kattisProblems.concat([]);
+  // Get problem index: which sorts all problems by date submitted
+  const problems = await fetch('problems/index.json').then(response => response.json());
 
   // Sort newest first
   problems.sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -118,30 +113,6 @@ async function mapDatesToProblems() {
   }
 
   return dateMap;
-}
-
-// Get a list of Kattis solutions in the repo
-async function getKattisProblems() {
-  const repo = "EliotTexK/eliottexk.github.io";
-  const dir = "problems/kattis";
-  const res = await fetch(`https://api.github.com/repos/${repo}/contents/${dir}`);
-  const files = await res.json();
-
-  const problems = await Promise.all(files.map(async (file) => {
-    const commitRes = await fetch(
-      `https://api.github.com/repos/${repo}/commits?path=${dir}/${file.name}&per_page=1`
-    );
-    const commits = await commitRes.json();
-
-    return {
-      type: "Kattis",
-      name: file.name,
-      date: commits[0].commit.author.date,
-      lang: getLanguage(file.name),
-      solutionContentURL: file.download_url,
-    };
-  }));
-  return problems;
 }
 
 function getLanguage(filename) {
