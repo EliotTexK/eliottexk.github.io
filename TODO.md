@@ -14,6 +14,8 @@ problem c
 
 1.5. Logo on top left: Eliot Solves Problems
 
+1.75. Make it load faster, if possible
+
 2. Use Kattis API, pull problem by filename minus the file extension:
 
 Cat emoji [10 Kinds of People](open.kattis.com/problems/10kindsofpeople)    Difficulty: 6
