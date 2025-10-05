@@ -138,13 +138,12 @@ def do_just_latex(problems: list):
             'dateSolved': date,
         })
 
-
 def main():
     repo = sys.argv[1] if len(sys.argv) > 1 else ""
     
     problems = []
-    # do_kattis(problems)
-    # do_euler(problems)
+    do_kattis(problems)
+    do_euler(problems)
     do_just_latex(problems)
     
     # Write to index.json
