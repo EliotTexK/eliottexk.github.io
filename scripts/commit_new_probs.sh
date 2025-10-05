@@ -1,1 +1,1 @@
-git add *; git commit -m "new problems"; git pull --rebase && git push
+git add -A && git commit -m "new problems" && git pull --rebase origin main && git push

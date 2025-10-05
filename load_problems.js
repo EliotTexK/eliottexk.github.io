@@ -4,6 +4,8 @@ async function loadProblems() {
 
   // Get all unique dates and map them back to problems
   const dates2Probs = await mapDatesToProblems()
+
+  console.log(dates2Probs)
   
   // Render
   const container = document.getElementById("problems");
@@ -103,7 +105,6 @@ async function render5MoreDays(dates2Probs, container) {
   Prism.highlightAll();
 
   if (daysLoaded >= dates2Probs.size) {
-    console.log("end");
     const loadMoreBtn = document.getElementById('loadMoreBtn');
     loadMoreBtn.style.display = "none";
   }
@@ -150,7 +151,7 @@ async function renderProblemContainer(problem) {
   
   readMoreBtn.addEventListener("mouseleave", () => {
     readMoreBtn.style.backgroundColor = "transparent";
-    readMoreBtn.style.borderColor =rgba(221, 221, 221, 0.5);
+    readMoreBtn.style.borderColor ="rgba(221, 221, 221, 0.5)";
   });
 
   let isExpanded = false;
@@ -203,7 +204,7 @@ async function renderProblem(problem) {
     case "Kattis": {
       return renderKattisProblem(problem);
     }
-    case "ProjeceEuler": {
+    case "ProjectEuler": {
       return renderEulerProblem(problem);
     }
     // default, just try to render it
@@ -315,9 +316,9 @@ async function renderEulerProblem(problem) {
   const difficulty = document.createElement("span");
   difficulty.textContent = `Difficulty: ${problem.probDifficulty}%`;
 
-  // Calculate difficulty hue: green (120) at 0.0, red (0) at 6.0+
+  // Calculate difficulty hue: green (120) at 0.0, red (0) at 50.0+
   const difficultyValue = parseFloat(problem.probDifficulty) || 0;
-  const hue = Math.max(0, 140 - (difficultyValue / 6.0) * 120);
+  const hue = Math.max(0, 140 - (difficultyValue / 50.0) * 120);
 
   difficulty.style.backgroundColor = `hsl(${hue}, 70%, 50%)`;
   difficulty.style.color = "white";

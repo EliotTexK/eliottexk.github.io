@@ -80,8 +80,8 @@ def main():
     repo = sys.argv[1] if len(sys.argv) > 1 else ""
     
     problems = []
-    do_kattis(problems)
     do_euler(problems)
+    do_kattis(problems)
     
     # Write to index.json
     Path('problems').mkdir(exist_ok=True)
