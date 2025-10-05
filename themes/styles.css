@@ -1,6 +1,8 @@
 body {
   font-family: sans-serif;
-  margin: 2rem;
+  margin-bottom: 3rem;
+  margin-left: 25%;
+  margin-right: 25%;
   background: #d6cec0;
 }
 
@@ -19,6 +21,20 @@ h1 {
 .solution h2 {
   margin: 0 0 0.5rem 0;
   font-size: 1.2rem;
+}
+
+.continue-button {
+  display: block;
+  margin: 16px auto 8px;
+  padding: 10px 24px;
+  background-color: transparent;
+  color: #555555;
+  border: 1px solid rgba(0,0,0, 0.5);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9em;
+  font-weight: 500;
+  transition: all 0.2s ease;
 }
 
 pre {
