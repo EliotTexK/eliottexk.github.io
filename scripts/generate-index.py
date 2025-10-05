@@ -20,7 +20,7 @@ def get_last_commit_date(filepath):
     )
     return result.stdout.strip()
 
-def scrape_name_and_difficulty(prob_id):
+def scrape_kattis_name_and_difficulty(prob_id: str):
     url = f"https://open.kattis.com/problems/{prob_id}"
 
     try:
@@ -48,11 +48,48 @@ def scrape_name_and_difficulty(prob_id):
 
     return html.unescape(title), difficulty
 
+def scrape_euler_name_and_difficulty(prob_id: str):
+    url = f'https://projecteuler.net/problem={prob_id}'
+
+    try:
+        with urlopen(url, timeout=10) as response:
+            response = response.read().decode('utf-8')
+    except HTTPError as e:
+        raise
+
+        # Quick and dirty, but alas, thus is the nature of the scrape 
+    difficulty_match = re.search(
+        r'<br>Difficulty rating: (\d+(?:\.\d+)?)%',
+        response
+    )
+    title_match = re.search(
+        r'<title>(.*?)\s* - Project Euler</title>',
+        response
+    )
+
+    difficulty = difficulty_match.group(1) if difficulty_match else "Difficulty not found"
+    title = title_match.group(1) if title_match else "Title not found"
+
+    # Don't draw their ire!
+    time.sleep(random.uniform(2.0, 5.0))
+    print(".")
+
+    return html.unescape(title), difficulty
+
 def main():
     repo = sys.argv[1] if len(sys.argv) > 1 else ""
     
-    problems_dir = Path('problems/kattis')
     problems = []
+    do_kattis(problems)
+    do_euler(problems)
+    
+    # Write to index.json
+    Path('problems').mkdir(exist_ok=True)
+    with open('problems/index.json', 'w') as f:
+        json.dump(problems, f, indent=2)
+
+def do_kattis(problems: list):
+    problems_dir = Path('problems/kattis')
     
     for filepath in problems_dir.rglob('*'):
         if filepath.is_file():
@@ -60,7 +97,7 @@ def main():
             prob_id = filepath.stem
             lang = filepath.suffix[1:]  # Remove the leading dot
             
-            prob_name, prob_difficulty = scrape_name_and_difficulty(prob_id)
+            prob_name, prob_difficulty = scrape_kattis_name_and_difficulty(prob_id)
 
             problems.append({
                 'type': 'Kattis',
@@ -72,11 +109,27 @@ def main():
                 'dateSolved': date,
                 'lang': lang
             })
-    
-    # Write to index.json
-    Path('problems').mkdir(exist_ok=True)
-    with open('problems/index.json', 'w') as f:
-        json.dump(problems, f, indent=2)
+
+def do_euler(problems: list):
+    problems_dir = Path('problems/project_euler')
+
+    for filepath in problems_dir.rglob('*'):
+        date = get_last_commit_date(str(filepath))
+        prob_id = filepath.stem
+        lang = filepath.suffix[1:]  # Remove the leading dot
+
+        prob_name, prob_difficulty = scrape_euler_name_and_difficulty(prob_id)
+
+        problems.append({
+            'type': 'ProjectEuler',
+            'solutionPath': str(filepath),
+            'yapfilePath': f'yap/project_euler/{prob_id}.tex',
+            'probName': prob_name,
+            'probDifficulty': prob_difficulty,
+            'probLink': f'https://projecteuler.net/problem={prob_id}',
+            'dateSolved': date,
+            'lang': lang
+        })
 
 if __name__ == '__main__':
     main()
