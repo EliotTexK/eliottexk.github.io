@@ -1,15 +1,5 @@
 [
   {
-    "type": "ProjectEuler",
-    "solutionPath": "problems/project_euler/1.py",
-    "yapfilePath": "yap/project_euler/1.tex",
-    "probName": "#1 Multiples of 3 or 5",
-    "probDifficulty": "5",
-    "probLink": "https://projecteuler.net/problem=1",
-    "dateSolved": "2025-10-05T01:49:56-05:00",
-    "lang": "py"
-  },
-  {
     "type": "Kattis",
     "solutionPath": "problems/kattis/quickscope.cpp",
     "yapfilePath": "yap/kattis/quickscope.tex",
@@ -87,16 +77,6 @@
     "probDifficulty": "4.7",
     "probLink": "https://open.kattis.com/problems/agamemnonsodyssey",
     "dateSolved": "2024-02-08T12:00:00-06:00",
-    "lang": "py"
-  },
-  {
-    "type": "ProjectEuler",
-    "solutionPath": "problems/project_euler/1.py",
-    "yapfilePath": "yap/project_euler/1.tex",
-    "probName": "#1 Multiples of 3 or 5",
-    "probDifficulty": "5",
-    "probLink": "https://projecteuler.net/problem=1",
-    "dateSolved": "2025-10-05T01:49:56-05:00",
     "lang": "py"
   }
 ]
