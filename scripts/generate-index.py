@@ -9,6 +9,8 @@ import random
 import time
 import html
 from pathlib import Path
+from urllib.request import urlopen
+from urllib.error import HTTPError
 
 def get_last_commit_date(filepath):
     """Get the last commit date for a file in ISO format."""
@@ -22,17 +24,20 @@ def get_last_commit_date(filepath):
 def scrape_name_and_difficulty(prob_id):
     url = f"https://open.kattis.com/problems/{prob_id}"
 
-    response = requests.get(url, timeout=10)
-    response.raise_for_status()
+    try:
+        with urlopen(url, timeout=10) as response:
+            response = response.read().decode('utf-8')
+    except HTTPError as e:
+        raise
 
     # Quick and dirty, but alas, thus is the nature of the scrape 
     difficulty_match = re.search(
         r'<span[^>]*class="[^"]*difficulty_number[^"]*"[^>]*>(\d+\.?\d*)',
-        response.text
+        response
     )
     title_match = re.search(
         r'<title>(.*?)\s*&ndash;\s*(.*?)</title>',
-        response.text
+        response
     )
 
     difficulty = difficulty_match.group(1) if difficulty_match else "Difficulty not found"
