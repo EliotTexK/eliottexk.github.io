@@ -4,8 +4,6 @@ async function loadProblems() {
 
   // Get all unique dates and map them back to problems
   const dates2Probs = await mapDatesToProblems()
-
-  console.log(dates2Probs)
   
   // Render
   const container = document.getElementById("problems");
@@ -151,7 +149,7 @@ async function renderProblemContainer(problem) {
   
   readMoreBtn.addEventListener("mouseleave", () => {
     readMoreBtn.style.backgroundColor = "transparent";
-    readMoreBtn.style.borderColor ="rgba(221, 221, 221, 0.5)";
+    readMoreBtn.style.borderColor ="rgba(0, 0, 0, 0.5)";
   });
 
   let isExpanded = false;

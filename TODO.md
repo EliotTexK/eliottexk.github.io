@@ -1,15 +1,12 @@
-4. Project Euler problem category:
 
-Oil emoji [1](https://projecteuler.net/problem=1)    Difficulty 5%
+6. Math problem category
 
-problem statement (embed markdown, since it's small)
+Math emoji The Pythagorean Theorem
 
-The solution is done by bla bla bla... ( LaTeX )
+embed LaTeX
 
-```python
+...
 
-for i in range(3):
-```
 click to expand (like Discord)
 
 5. Leetcode problem category
@@ -25,22 +22,6 @@ for bruh in range(pluh):
 ```
 click to expand (like Discord)
 
-6. Math problem category
-
-Math emoji The Pythagorean Theorem
-
-embed LaTeX
-
-...
-
-click to expand (like Discord)
-
-7. Blogpost category
-
-Book emoji MegaMiner
-
-embed Markdown ( syntax highlighting for code snippets )
-
-click to expand (like Discord)
+4. At end of all posts, show a message that says "You got to the end!"
 
 8. Filter by problem type (small, top right, dropdown)
