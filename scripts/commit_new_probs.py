@@ -1,1 +1,0 @@
-git pull; git commit -m "new problems"; git push
