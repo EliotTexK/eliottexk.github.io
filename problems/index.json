@@ -61,16 +61,6 @@
   },
   {
     "type": "Kattis",
-    "solutionPath": "problems/kattis/hello.py",
-    "yapfilePath": "yap/kattis/hello.tex",
-    "probName": "Hello World!",
-    "probDifficulty": "1.1",
-    "probLink": "https://open.kattis.com/problems/hello",
-    "dateSolved": "2025-10-05T01:15:52-05:00",
-    "lang": "py"
-  },
-  {
-    "type": "Kattis",
     "solutionPath": "problems/kattis/adjoin.cpp",
     "yapfilePath": "yap/kattis/adjoin.tex",
     "probName": "Adjoin the Networks",
