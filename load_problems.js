@@ -205,6 +205,9 @@ async function renderProblem(problem) {
     case "ProjectEuler": {
       return renderEulerProblem(problem);
     }
+    case "JustLaTeX": {
+      return renderJustLatex(problem);
+    }
     // default, just try to render it
     default: {
       return problem;
@@ -354,6 +357,35 @@ async function renderEulerProblem(problem) {
   div.appendChild(h2);
   div.appendChild(yapArea);
   div.appendChild(codeArea);
+
+  return div;
+}
+
+async function renderJustLatex(problem) {
+  const fetchYapPromise = fetch(problem.solutionPath)
+
+  // create a div for it
+  const div = document.createElement("div");
+
+  // add a heading
+  const h2 = document.createElement("h2");
+  h2.textContent = problem.probName
+
+  // Render the yap
+  const yapArea = document.createElement("div");
+  
+  const yapResult = await fetchYapPromise;
+  if (yapResult.ok) {
+    const yapText = await yapResult.text();
+    yapArea.textContent = yapText;
+    
+    if (window.MathJax) {
+      MathJax.typesetPromise([yapArea]);
+    }
+  }
+
+  div.appendChild(h2);
+  div.appendChild(yapArea);
 
   return div;
 }

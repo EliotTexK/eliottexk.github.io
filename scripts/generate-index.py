@@ -57,12 +57,12 @@ def scrape_euler_name_and_difficulty(prob_id: str):
     except HTTPError as e:
         raise
 
-        # Quick and dirty, but alas, thus is the nature of the scrape 
-    difficulty_match = re.search(
+    # Quick and dirty, but alas, thus is the nature of the scrape 
+    difficulty_match = re.match(
         r'<br>Difficulty rating: (\d+(?:\.\d+)?)%',
         response
     )
-    title_match = re.search(
+    title_match = re.match(
         r'<title>(.*?)\s* - Project Euler</title>',
         response
     )
@@ -75,18 +75,6 @@ def scrape_euler_name_and_difficulty(prob_id: str):
     print(".")
 
     return html.unescape(title), difficulty
-
-def main():
-    repo = sys.argv[1] if len(sys.argv) > 1 else ""
-    
-    problems = []
-    do_euler(problems)
-    do_kattis(problems)
-    
-    # Write to index.json
-    Path('problems').mkdir(exist_ok=True)
-    with open('problems/index.json', 'w') as f:
-        json.dump(problems, f, indent=2)
 
 def do_kattis(problems: list):
     problems_dir = Path('problems/kattis')
@@ -130,6 +118,39 @@ def do_euler(problems: list):
             'dateSolved': date,
             'lang': lang
         })
+
+def do_just_latex(problems: list):
+    problems_dir = Path('problems/just_latex')
+
+    for filepath in problems_dir.rglob('*'):
+        date = get_last_commit_date(str(filepath))
+        prob_text = open(filepath).read()
+        prob_name_match = re.match(
+            r'^% (.*)\n',
+            prob_text
+        )
+        prob_name = prob_name_match.group(1) if prob_name_match else ""
+
+        problems.append({
+            'type': 'JustLaTeX',
+            'solutionPath': str(filepath),
+            'probName': prob_name,
+            'dateSolved': date,
+        })
+
+
+def main():
+    repo = sys.argv[1] if len(sys.argv) > 1 else ""
+    
+    problems = []
+    # do_kattis(problems)
+    # do_euler(problems)
+    do_just_latex(problems)
+    
+    # Write to index.json
+    Path('problems').mkdir(exist_ok=True)
+    with open('problems/index.json', 'w') as f:
+        json.dump(problems, f, indent=2)
 
 if __name__ == '__main__':
     main()

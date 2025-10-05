@@ -1,12 +1,22 @@
 [
   {
     "type": "Kattis",
-    "solutionPath": "problems/kattis/quickscope.cpp",
-    "yapfilePath": "yap/kattis/quickscope.tex",
-    "probName": "Quickscope",
-    "probDifficulty": "1.2",
-    "probLink": "https://open.kattis.com/problems/quickscope",
-    "dateSolved": "2024-01-01T12:00:00-06:00",
+    "solutionPath": "problems/kattis/champernownecount.py",
+    "yapfilePath": "yap/kattis/champernownecount.tex",
+    "probName": "Champernowne Count",
+    "probDifficulty": "3.3",
+    "probLink": "https://open.kattis.com/problems/champernownecount",
+    "dateSolved": "2023-03-09T12:00:00-06:00",
+    "lang": "py"
+  },
+  {
+    "type": "Kattis",
+    "solutionPath": "problems/kattis/adjoin.cpp",
+    "yapfilePath": "yap/kattis/adjoin.tex",
+    "probName": "Adjoin the Networks",
+    "probDifficulty": "6.0",
+    "probLink": "https://open.kattis.com/problems/adjoin",
+    "dateSolved": "2024-01-04T12:00:00-06:00",
     "lang": "cpp"
   },
   {
@@ -18,6 +28,26 @@
     "probLink": "https://open.kattis.com/problems/annoyedcoworkers",
     "dateSolved": "2024-02-08T12:00:00-06:00",
     "lang": "py"
+  },
+  {
+    "type": "Kattis",
+    "solutionPath": "problems/kattis/agamemnonsodyssey.py",
+    "yapfilePath": "yap/kattis/agamemnonsodyssey.tex",
+    "probName": "Agamemnon's Odyssey",
+    "probDifficulty": "4.7",
+    "probLink": "https://open.kattis.com/problems/agamemnonsodyssey",
+    "dateSolved": "2024-02-08T12:00:00-06:00",
+    "lang": "py"
+  },
+  {
+    "type": "Kattis",
+    "solutionPath": "problems/kattis/quickscope.cpp",
+    "yapfilePath": "yap/kattis/quickscope.tex",
+    "probName": "Quickscope",
+    "probDifficulty": "1.2",
+    "probLink": "https://open.kattis.com/problems/quickscope",
+    "dateSolved": "2024-01-01T12:00:00-06:00",
+    "lang": "cpp"
   },
   {
     "type": "Kattis",
@@ -41,16 +71,6 @@
   },
   {
     "type": "Kattis",
-    "solutionPath": "problems/kattis/champernownecount.py",
-    "yapfilePath": "yap/kattis/champernownecount.tex",
-    "probName": "Champernowne Count",
-    "probDifficulty": "3.3",
-    "probLink": "https://open.kattis.com/problems/champernownecount",
-    "dateSolved": "2023-03-09T12:00:00-06:00",
-    "lang": "py"
-  },
-  {
-    "type": "Kattis",
     "solutionPath": "problems/kattis/alicedigital.cpp",
     "yapfilePath": "yap/kattis/alicedigital.tex",
     "probName": "Alice in the Digital World",
@@ -60,23 +80,9 @@
     "lang": "cpp"
   },
   {
-    "type": "Kattis",
-    "solutionPath": "problems/kattis/adjoin.cpp",
-    "yapfilePath": "yap/kattis/adjoin.tex",
-    "probName": "Adjoin the Networks",
-    "probDifficulty": "6.0",
-    "probLink": "https://open.kattis.com/problems/adjoin",
-    "dateSolved": "2024-01-04T12:00:00-06:00",
-    "lang": "cpp"
-  },
-  {
-    "type": "Kattis",
-    "solutionPath": "problems/kattis/agamemnonsodyssey.py",
-    "yapfilePath": "yap/kattis/agamemnonsodyssey.tex",
-    "probName": "Agamemnon's Odyssey",
-    "probDifficulty": "4.7",
-    "probLink": "https://open.kattis.com/problems/agamemnonsodyssey",
-    "dateSolved": "2024-02-08T12:00:00-06:00",
-    "lang": "py"
+    "type": "JustLaTeX",
+    "solutionPath": "problems/just_latex/pythagorean_theorem.tex",
+    "probName": "The Pythagorean Theorem",
+    "dateSolved": ""
   }
 ]
