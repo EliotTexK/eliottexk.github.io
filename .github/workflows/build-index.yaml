@@ -17,11 +17,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 0 # Fetch whole history
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
 
       - name: Build index JSON
-        run: |
-          ./scripts/generate-index.sh "${{ github.repository }}"
+        run: python scripts/generate-index.py "${{ github.repository }}"
 
       - name: Commit and push index
         run: |

@@ -6,11 +6,20 @@
   <link rel="icon" type="image/x-icon" href="/images/favicon.png">
   <link rel="stylesheet" href="themes/styles.css">
   <link href="themes/prism.css" rel="stylesheet" />
+  <script>
+  <!-- Configure MathJAX so that it replaces single dollar-sign expressions -->
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']]
+    }
+  };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
   <script src="prism.js"></script>
   <script src="load_problems.js"></script>
-  <h1>My Solutions</h1>
   <div id="problems">Loading...</div>
   <script>loadProblems();</script>
   <button id="loadMoreBtn">Load More</button>

@@ -61,11 +61,9 @@ async function renderProblem(problem) {
 }
 
 async function renderKattisProblem(problem) {
-  // fetch code solution
-  fetchSolutionCodePromise = fetch(problem.solutionContentURL)
-
-  // fetch yap file
-
+  // fetch code solution and yapfile
+  const fetchYapPromise = fetch(problem.yapfilePath)
+  const fetchSolutionCodePromise = fetch(problem.solutionPath)
 
   // create a div for it
   const div = document.createElement("div");
@@ -73,7 +71,52 @@ async function renderKattisProblem(problem) {
 
   // make a heading
   const h2 = document.createElement("h2");
-  h2.textContent = `${problem.name}`;
+  h2.style.display = "flex";
+  h2.style.justifyContent = "space-between";
+  h2.style.alignItems = "center";
+
+  const title = document.createElement("span");
+
+  const link = document.createElement("a");
+  link.href = problem.probLink;
+  link.textContent = problem.probName;
+  link.target = "_blank"; // Optional: opens in new tab
+
+  const suffix = document.createTextNode(" - Kattis");
+
+  title.appendChild(link);
+  title.appendChild(suffix);
+
+  const difficulty = document.createElement("span");
+  difficulty.textContent = `Difficulty: ${problem.probDifficulty}`;
+
+  // Calculate difficulty hue: green (120) at 0.0, red (0) at 6.0+
+  const difficultyValue = parseFloat(problem.probDifficulty) || 0;
+  const hue = Math.max(0, 140 - (difficultyValue / 6.0) * 120);
+
+  difficulty.style.backgroundColor = `hsl(${hue}, 70%, 50%)`;
+  difficulty.style.color = "white";
+  difficulty.style.padding = "4px 12px";
+  difficulty.style.borderRadius = "4px";
+  difficulty.style.fontSize = "0.9em";
+  difficulty.style.fontWeight = "bold";
+
+  h2.appendChild(title);
+  h2.appendChild(difficulty);
+
+  // Render the yap
+  const yapArea = document.createElement("div");
+  
+  const yapResult = await fetchYapPromise;
+  if (yapResult.ok) {
+    const yapText = await yapResult.text();
+    yapArea.textContent = yapText; // LaTeX source
+    
+    // Let MathJax process the LaTeX
+    if (window.MathJax) {
+      MathJax.typesetPromise([yapArea]);
+    }
+  }
 
   // Make an area for the code to be put
   const codeArea = document.createElement("pre");
@@ -86,6 +129,7 @@ async function renderKattisProblem(problem) {
 
   codeArea.appendChild(code);
   div.appendChild(h2);
+  div.appendChild(yapArea)
   div.appendChild(codeArea);
 
   return div
@@ -103,7 +147,7 @@ async function mapDatesToProblems() {
 
   for (const problem of problems) {
     // Extract just the date part (YYYY-MM-DD) from the ISO timestamp
-    const date = problem.date.split('T')[0];
+    const date = problem.dateSolved.split('T')[0];
 
     if (!dateMap.has(date)) {
       dateMap.set(date, []);
@@ -113,16 +157,4 @@ async function mapDatesToProblems() {
   }
 
   return dateMap;
-}
-
-function getLanguage(filename) {
-  const ext = filename.split('.').pop().toLowerCase();
-  const langMap = {
-    'cpp': 'cpp',
-    'cc': 'cpp',
-    'cxx': 'cpp',
-    'py': 'python',
-    'rs': 'rust'
-  };
-  return langMap[ext] || 'cpp';
 }

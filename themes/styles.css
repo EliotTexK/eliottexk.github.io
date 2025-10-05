@@ -1,7 +1,7 @@
 body {
   font-family: sans-serif;
   margin: 2rem;
-  background: #ECE4D1;
+  background: #d6cec0;
 }
 
 h1 {
@@ -11,9 +11,9 @@ h1 {
 .solution {
   margin-bottom: 2rem;
   padding: 1rem;
-  border: 1px solid #EEB160;
-  border-radius: 8px;
-  background: #F3C16E;
+  border: 1px solid #000000;
+  border-radius: 6px;
+  background: #FFFFFF;
 }
 
 .solution h2 {
@@ -30,4 +30,8 @@ pre {
 pre code {
   font-family: monospace;
   font-size: 0.9rem;
+}
+
+a {
+  color: #c04d00;
 }

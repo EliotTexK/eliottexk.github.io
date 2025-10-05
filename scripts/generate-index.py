@@ -1,0 +1,78 @@
+#!/usr/bin/env python3
+# This is run as a GitHub action, so that we only scrape Kattis every once in a while
+import json
+import subprocess
+import requests
+import re
+import sys
+import random
+import time
+import html
+from pathlib import Path
+
+def get_last_commit_date(filepath):
+    """Get the last commit date for a file in ISO format."""
+    result = subprocess.run(
+        ['git', 'log', '-1', '--format=%cI', '--', filepath],
+        capture_output=True,
+        text=True
+    )
+    return result.stdout.strip()
+
+def scrape_name_and_difficulty(prob_id):
+    url = f"https://open.kattis.com/problems/{prob_id}"
+
+    response = requests.get(url, timeout=10)
+    response.raise_for_status()
+
+    # Quick and dirty, but alas, thus is the nature of the scrape 
+    difficulty_match = re.search(
+        r'<span[^>]*class="[^"]*difficulty_number[^"]*"[^>]*>(\d+\.?\d*)',
+        response.text
+    )
+    title_match = re.search(
+        r'<title>(.*?)\s*&ndash;\s*(.*?)</title>',
+        response.text
+    )
+
+    difficulty = difficulty_match.group(1) if difficulty_match else "Difficulty not found"
+    title = title_match.group(1) if title_match else "Title not found"
+
+    # Don't draw their ire!
+    time.sleep(random.uniform(2.0, 5.0))
+    print(".")
+
+    return html.unescape(title), difficulty
+
+def main():
+    repo = sys.argv[1] if len(sys.argv) > 1 else ""
+    
+    problems_dir = Path('problems/kattis')
+    problems = []
+    
+    for filepath in problems_dir.rglob('*'):
+        if filepath.is_file():
+            date = get_last_commit_date(str(filepath))
+            prob_id = filepath.stem
+            lang = filepath.suffix[1:]  # Remove the leading dot
+            
+            prob_name, prob_difficulty = scrape_name_and_difficulty(prob_id)
+
+            problems.append({
+                'type': 'Kattis',
+                'solutionPath': str(filepath),
+                'yapfilePath': f'yap/kattis/{prob_id}.tex',
+                'probName': prob_name,
+                'probDifficulty': prob_difficulty,
+                'probLink': f'https://open.kattis.com/problems/{prob_id}',
+                'dateSolved': date,
+                'lang': lang
+            })
+    
+    # Write to index.json
+    Path('problems').mkdir(exist_ok=True)
+    with open('problems/index.json', 'w') as f:
+        json.dump(problems, f, indent=2)
+
+if __name__ == '__main__':
+    main()
