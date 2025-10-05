@@ -126,7 +126,7 @@ def do_just_latex(problems: list):
         date = get_last_commit_date(str(filepath))
         prob_text = open(filepath).read()
         prob_name_match = re.match(
-            r'^% (.*)\n',
+            r'\$\$\n% (.*)\n\$\$',
             prob_text
         )
         prob_name = prob_name_match.group(1) if prob_name_match else ""
