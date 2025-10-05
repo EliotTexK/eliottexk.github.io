@@ -2,7 +2,6 @@
 # This is run as a GitHub action, so that we only scrape Kattis every once in a while
 import json
 import subprocess
-import requests
 import re
 import sys
 import random
