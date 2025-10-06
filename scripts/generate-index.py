@@ -58,11 +58,11 @@ def scrape_euler_name_and_difficulty(prob_id: str):
         raise
 
     # Quick and dirty, but alas, thus is the nature of the scrape 
-    difficulty_match = re.match(
+    difficulty_match = re.search(
         r'<br>Difficulty rating: (\d+(?:\.\d+)?)%',
         response
     )
-    title_match = re.match(
+    title_match = re.search(
         r'<title>(.*?)\s* - Project Euler</title>',
         response
     )
