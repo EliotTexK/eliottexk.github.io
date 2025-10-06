@@ -24,7 +24,7 @@
     "solutionPath": "problems/kattis/10kindsofpeople.cpp",
     "yapfilePath": "yap/kattis/10kindsofpeople.tex",
     "probName": "10 Kinds of People",
-    "probDifficulty": "4.4",
+    "probDifficulty": "4.3",
     "probLink": "https://open.kattis.com/problems/10kindsofpeople",
     "dateSolved": "2024-01-06T12:00:00-06:00",
     "lang": "cpp"
