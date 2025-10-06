@@ -81,6 +81,16 @@
   },
   {
     "type": "ProjectEuler",
+    "solutionPath": "problems/project_euler/2.py",
+    "yapfilePath": "yap/project_euler/2.tex",
+    "probName": "#2 Even Fibonacci Numbers",
+    "probDifficulty": "5",
+    "probLink": "https://projecteuler.net/problem=2",
+    "dateSolved": "2025-10-06T00:23:41-05:00",
+    "lang": "py"
+  },
+  {
+    "type": "ProjectEuler",
     "solutionPath": "problems/project_euler/1.py",
     "yapfilePath": "yap/project_euler/1.tex",
     "probName": "#1 Multiples of 3 or 5",
