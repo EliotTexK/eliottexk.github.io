@@ -1,0 +1,16 @@
+Obviously this one is easy.
+
+Still, I wonder if there's a trick here that we'll need for a later problem that's like this but harder.
+
+We want the sum of all multiples of 3 plus the sum of all multiples of 5, minus the double-counted multiples of 15.
+
+Perhaps we can rewrite sums of consecutive integers.
+
+$ \sum_{i = 1}^{n}3i + \sum_{i = 1}^{m}5i - \sum_{i = 1}^{k}15i $
+
+Upper bounds: find the largest multiples of 3, 5, 15 less than 1000, and divide by 3, 5, 15 respectively.
+
+$ \sum_{i = 1}^{333}3i + \sum_{i = 1}^{199}5i - \sum_{i = 1}^{66}15i =
+3\cdot\frac{(333)(334)}{2} + 5\cdot\frac{(199)(200)}{2} - 15\cdot\frac{(66)(67)}{2} $
+
+Now we can use multiplication instead of addition. Useful?

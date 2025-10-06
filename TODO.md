@@ -1,14 +1,3 @@
-
-6. Math problem category
-
-Math emoji The Pythagorean Theorem
-
-embed LaTeX
-
-...
-
-click to expand (like Discord)
-
 5. Leetcode problem category
 
 Baby emoji [Coin Change](https://leetcode.com/problems/coin-change/) Difficulty Medium
