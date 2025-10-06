@@ -24,7 +24,7 @@
     "solutionPath": "problems/kattis/10kindsofpeople.cpp",
     "yapfilePath": "yap/kattis/10kindsofpeople.tex",
     "probName": "10 Kinds of People",
-    "probDifficulty": "4.3",
+    "probDifficulty": "4.4",
     "probLink": "https://open.kattis.com/problems/10kindsofpeople",
     "dateSolved": "2024-01-06T12:00:00-06:00",
     "lang": "cpp"
@@ -60,6 +60,7 @@
     "lang": "cpp"
   },
   {
+<<<<<<< HEAD
     "type": "Kattis",
     "solutionPath": "problems/kattis/adjoin.cpp",
     "yapfilePath": "yap/kattis/adjoin.tex",
@@ -77,6 +78,15 @@
     "probDifficulty": "4.7",
     "probLink": "https://open.kattis.com/problems/agamemnonsodyssey",
     "dateSolved": "2024-02-08T12:00:00-06:00",
+=======
+    "type": "ProjectEuler",
+    "solutionPath": "problems/project_euler/1.py",
+    "yapfilePath": "yap/project_euler/1.tex",
+    "probName": "Title not found",
+    "probDifficulty": "Difficulty not found",
+    "probLink": "https://projecteuler.net/problem=1",
+    "dateSolved": "2025-10-05T18:50:12-05:00",
+>>>>>>> d1e8d19 (new problems)
     "lang": "py"
   }
 ]
