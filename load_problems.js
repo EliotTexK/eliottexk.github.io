@@ -265,6 +265,7 @@ async function renderKattisProblem(problem) {
   if (yapResult.ok) {
     const yapText = await yapResult.text();
     yapArea.textContent = yapText;
+    yapArea.style.whiteSpace = 'pre-wrap';
     
     if (window.MathJax) {
       MathJax.typesetPromise([yapArea]);
@@ -338,6 +339,7 @@ async function renderEulerProblem(problem) {
   if (yapResult.ok) {
     const yapText = await yapResult.text();
     yapArea.textContent = yapText;
+    yapArea.style.whiteSpace = 'pre-wrap';
     
     if (window.MathJax) {
       MathJax.typesetPromise([yapArea]);
@@ -378,6 +380,7 @@ async function renderJustLatex(problem) {
   if (yapResult.ok) {
     const yapText = await yapResult.text();
     yapArea.textContent = yapText;
+    yapArea.style.whiteSpace = 'pre-wrap';
     
     if (window.MathJax) {
       MathJax.typesetPromise([yapArea]);
