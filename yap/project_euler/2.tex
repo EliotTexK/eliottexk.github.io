@@ -1,0 +1,85 @@
+This one can be easily brute forced, but why not have some fun before we get to hard problems that force us to be smart?
+
+Parity follows a pattern in the fibonaccis. Every 3rd is even:
+
+Odd, Odd, Odd+Odd=Even, Odd+Even=Odd, Even+Odd=Odd, Odd+Odd=Even
+
+We can classify the fibonaccis into 3 groups:
+
+$ A $. Sum of an Even then Odd
+
+$ B $. Sum of an Odd then Even
+
+$ C $. Sum of an Odd then Odd ( is Even )
+
+Further:
+
+$ A $. Sum of $ B $ then $ C $
+
+$ B $. Sum of $ C $ then $ A $
+
+$ C $. Sum of $ A $ then $ B $ ( Even )
+
+If we index a number by the index of the largest even number smaller than or equal to it, we get:
+
+$ C_n = A_{n-1} + B_{n-1} $
+
+$ B_n = C_n + A_n $
+
+$ A_n = B_{n-1} + C_n $
+
+Then, we can decompose any even number:
+
+$ C_n = B_{n-2} + C_{n-1} + C_{n-1} + A_{n-1}
+= C_{n-2} + A_{n-2} + C_{n-1} + C_{n-1} + C_{n-1} + B_{n-2} $
+
+Then compose $ A_{n-2} $ and $ B_{n-2} $ back together:
+
+$ = C_{n-2} + C_{n-1} + C_{n-1} + C_{n-1} + C_{n-1} = C_{n-2} + 4C_{n-1} $
+
+Now, we have a recurrence just in terms of even fibonacci numbers.
+
+Express this recurrence as a 2 by 2 matrix multiplication, similar to how we can with regular (not necessarily even) fibonacci numbers:
+
+$$
+\begin{pmatrix}
+4 & 1 \\
+1 & 0
+\end{pmatrix}
+\begin{pmatrix}
+C_{n-1} \\
+C_{n-2}
+\end{pmatrix}
+=
+\begin{pmatrix}
+4C_{n-1} + C_{n-2}  \\
+C_{n-1}
+\end{pmatrix}
+=
+\begin{pmatrix}
+C_n  \\
+C_{n-1}
+\end{pmatrix}
+$$
+
+Now we can treat iterating the recurrence as repeated matrix multiplication:
+
+$$
+\begin{pmatrix}
+4 & 1 \\
+1 & 0
+\end{pmatrix}^n
+\begin{pmatrix}
+C_1 \\
+C_0
+\end{pmatrix}
+=
+\begin{pmatrix}
+C_{n+1}  \\
+C_{n}
+\end{pmatrix}
+$$
+
+This matrix can be diagonalized to raise it to high powers efficiently.
+
+But, that's super-overkill. Maybe I'll implement that later...
