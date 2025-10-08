@@ -14,7 +14,7 @@
     "solutionPath": "problems/kattis/annoyedcoworkers.py",
     "yapfilePath": "yap/kattis/annoyedcoworkers.tex",
     "probName": "Annoyed Coworkers",
-    "probDifficulty": "5.7",
+    "probDifficulty": "5.6",
     "probLink": "https://open.kattis.com/problems/annoyedcoworkers",
     "dateSolved": "2024-02-08T12:00:00-06:00",
     "lang": "py"
@@ -24,7 +24,7 @@
     "solutionPath": "problems/kattis/10kindsofpeople.cpp",
     "yapfilePath": "yap/kattis/10kindsofpeople.tex",
     "probName": "10 Kinds of People",
-    "probDifficulty": "4.3",
+    "probDifficulty": "4.2",
     "probLink": "https://open.kattis.com/problems/10kindsofpeople",
     "dateSolved": "2024-01-06T12:00:00-06:00",
     "lang": "cpp"
@@ -58,6 +58,16 @@
     "probLink": "https://open.kattis.com/problems/alicedigital",
     "dateSolved": "2024-01-08T12:00:00-06:00",
     "lang": "cpp"
+  },
+  {
+    "type": "Kattis",
+    "solutionPath": "problems/kattis/1dfroggereasy.py",
+    "yapfilePath": "yap/kattis/1dfroggereasy.tex",
+    "probName": "1-D Frogger (Easy)",
+    "probDifficulty": "2.8",
+    "probLink": "https://open.kattis.com/problems/1dfroggereasy",
+    "dateSolved": "2025-10-07T22:19:00-05:00",
+    "lang": "py"
   },
   {
     "type": "Kattis",
