@@ -1,46 +1,6 @@
 [
   {
     "type": "Kattis",
-    "solutionPath": "problems/kattis/champernownecount.py",
-    "yapfilePath": "yap/kattis/champernownecount.tex",
-    "probName": "Champernowne Count",
-    "probDifficulty": "3.3",
-    "probLink": "https://open.kattis.com/problems/champernownecount",
-    "dateSolved": "2023-03-09T12:00:00-06:00",
-    "lang": "py"
-  },
-  {
-    "type": "Kattis",
-    "solutionPath": "problems/kattis/adjoin.cpp",
-    "yapfilePath": "yap/kattis/adjoin.tex",
-    "probName": "Adjoin the Networks",
-    "probDifficulty": "6.0",
-    "probLink": "https://open.kattis.com/problems/adjoin",
-    "dateSolved": "2024-01-04T12:00:00-06:00",
-    "lang": "cpp"
-  },
-  {
-    "type": "Kattis",
-    "solutionPath": "problems/kattis/annoyedcoworkers.py",
-    "yapfilePath": "yap/kattis/annoyedcoworkers.tex",
-    "probName": "Annoyed Coworkers",
-    "probDifficulty": "5.6",
-    "probLink": "https://open.kattis.com/problems/annoyedcoworkers",
-    "dateSolved": "2024-02-08T12:00:00-06:00",
-    "lang": "py"
-  },
-  {
-    "type": "Kattis",
-    "solutionPath": "problems/kattis/agamemnonsodyssey.py",
-    "yapfilePath": "yap/kattis/agamemnonsodyssey.tex",
-    "probName": "Agamemnon's Odyssey",
-    "probDifficulty": "4.7",
-    "probLink": "https://open.kattis.com/problems/agamemnonsodyssey",
-    "dateSolved": "2024-02-08T12:00:00-06:00",
-    "lang": "py"
-  },
-  {
-    "type": "Kattis",
     "solutionPath": "problems/kattis/quickscope.cpp",
     "yapfilePath": "yap/kattis/quickscope.tex",
     "probName": "Quickscope",
@@ -51,14 +11,20 @@
   },
   {
     "type": "Kattis",
+    "solutionPath": "problems/kattis/annoyedcoworkers.py",
+    "yapfilePath": "yap/kattis/annoyedcoworkers.tex",
+    "probName": "Annoyed Coworkers",
+    "probDifficulty": "5.7",
+    "probLink": "https://open.kattis.com/problems/annoyedcoworkers",
+    "dateSolved": "2024-02-08T12:00:00-06:00",
+    "lang": "py"
+  },
+  {
+    "type": "Kattis",
     "solutionPath": "problems/kattis/10kindsofpeople.cpp",
     "yapfilePath": "yap/kattis/10kindsofpeople.tex",
     "probName": "10 Kinds of People",
-<<<<<<< HEAD
-    "probDifficulty": "4.2",
-=======
     "probDifficulty": "4.0",
->>>>>>> 5915ffc (new problems)
     "probLink": "https://open.kattis.com/problems/10kindsofpeople",
     "dateSolved": "2024-01-06T12:00:00-06:00",
     "lang": "cpp"
@@ -71,6 +37,16 @@
     "probDifficulty": "3.8",
     "probLink": "https://open.kattis.com/problems/textureanalysis",
     "dateSolved": "2024-01-03T12:00:00-06:00",
+    "lang": "py"
+  },
+  {
+    "type": "Kattis",
+    "solutionPath": "problems/kattis/champernownecount.py",
+    "yapfilePath": "yap/kattis/champernownecount.tex",
+    "probName": "Champernowne Count",
+    "probDifficulty": "3.3",
+    "probLink": "https://open.kattis.com/problems/champernownecount",
+    "dateSolved": "2023-03-09T12:00:00-06:00",
     "lang": "py"
   },
   {
@@ -94,13 +70,23 @@
     "lang": "py"
   },
   {
-    "type": "ProjectEuler",
-    "solutionPath": "problems/project_euler/1.py",
-    "yapfilePath": "yap/project_euler/1.tex",
-    "probName": "#1 Multiples of 3 or 5",
-    "probDifficulty": "5",
-    "probLink": "https://projecteuler.net/problem=1",
-    "dateSolved": "2025-10-05T19:01:31-05:00",
+    "type": "Kattis",
+    "solutionPath": "problems/kattis/adjoin.cpp",
+    "yapfilePath": "yap/kattis/adjoin.tex",
+    "probName": "Adjoin the Networks",
+    "probDifficulty": "6.0",
+    "probLink": "https://open.kattis.com/problems/adjoin",
+    "dateSolved": "2024-01-04T12:00:00-06:00",
+    "lang": "cpp"
+  },
+  {
+    "type": "Kattis",
+    "solutionPath": "problems/kattis/agamemnonsodyssey.py",
+    "yapfilePath": "yap/kattis/agamemnonsodyssey.tex",
+    "probName": "Agamemnon's Odyssey",
+    "probDifficulty": "4.7",
+    "probLink": "https://open.kattis.com/problems/agamemnonsodyssey",
+    "dateSolved": "2024-02-08T12:00:00-06:00",
     "lang": "py"
   },
   {
@@ -114,11 +100,21 @@
     "lang": "py"
   },
   {
+    "type": "ProjectEuler",
+    "solutionPath": "problems/project_euler/1.py",
+    "yapfilePath": "yap/project_euler/1.tex",
+    "probName": "#1 Multiples of 3 or 5",
+    "probDifficulty": "5",
+    "probLink": "https://projecteuler.net/problem=1",
+    "dateSolved": "2025-10-05T19:01:31-05:00",
+    "lang": "py"
+  },
+  {
     "type": "Misc",
     "solutionPath": "problems/misc/discrete_diffusion.py",
     "yapfilePath": "yap/project_euler/discrete_diffusion.tex",
-    "probName": "Discrete Diffusion",
-    "dateSolved": "",
+    "probName": "",
+    "dateSolved": "2025-10-09T22:46:36-05:00",
     "lang": "py"
   }
 ]
