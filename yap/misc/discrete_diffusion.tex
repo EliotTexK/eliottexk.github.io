@@ -1,0 +1,80 @@
+$$
+%
+Discrete Diffusion
+%
+$$
+
+This one was for homework, but I thought it was cool I'm postin' it!
+
+Consider a spatial interval $[a, b]$. Let $M$ be a given positive integer and define the spatial step size $h = (b - a)/M$.<br>
+The spatial grid points are then defined as $x_i = a + i h$, for $0 \le i \le M$. <br>
+Similarly, define the time step size $\tau > 0$ and the discrete time levels $t_n = n\tau$, for $0 \le n \le N$. <br>
+Let $u_i^n$ denote the numerical approximation to the solution $u(x_i, t_n)$ at the grid point $(x_i, t_n)$.  <br>
+
+The discrete diffusion equation on this space–time lattice is given by
+
+$$u_i^{\,n+1} = u_i^{\,n} + \frac{\tau}{h^2} \left( u_{i+1}^{\,n} - 2u_i^{\,n} + u_{i-1}^{\,n} \right) + f(x_i, t_n), 
+\qquad 1 \le i \le M - 1,\quad 0 \le n \le N - 1,$$
+subject to the boundary conditions
+$$u_0^{\,n} = u_M^{\,n} = 0, \qquad 0 \le n \le N,$$
+and the initial condition
+$$u_i^{\,0} = g(x_i), \qquad 0 \le i \le M.$$
+Here, $f(x_i, t_n)$ is a given source term and $g(x)$ is the given initial condition.
+
+The goal is to perform this computation using matrix multiplications to get from one timestep to the next.
+
+## My Solution
+
+We want to express the discrete diffusion equation as a matrix transformation.
+
+First, let's factor in terms of components of $u^n$
+$$u_i^{n+1} = \frac{\tau}{h^2}u_{i+1}^n + (1-\frac{2\tau}{h^2})u_i^n + \frac{\tau}{h^2}u_{i-1}^n + f(x_i,t_n)$$
+For clarity, substitute $c = \frac{\tau}{h^2}, d = (1-\frac{2\tau}{h^2})$
+$$u_i^{n+1} = cu_{i+1}^n + du_i^n + cu_{i-1}^n + f(x_i,t_n)$$
+Steps $u_i^{n+1}$ can be expressed as dot products
+$$
+u_i^{n+1} =
+\begin{bmatrix}
+0 & \dots & 0 & c & d & c & 0 & \dots & 0
+\end{bmatrix}
+\begin{bmatrix}
+u_0^n \\ u_1^n \\ \vdots \\ u_{M}^n
+\end{bmatrix} + f(x_i,t_n)
+$$
+Steps at "beginning" and "end" of the lattice $u_0^{n+1}, u_{M}^{n+1}$ are special cases
+$$
+u_0^{n+1} =
+\begin{bmatrix}
+d & c & 0 & \dots & 0
+\end{bmatrix}
+\begin{bmatrix}
+u_0^n \\ u_1^n \\ \vdots \\ u_{M}^n
+\end{bmatrix} + f(x_0,t_n),\hspace{0.3cm}
+u_{M}^{n+1} =
+\begin{bmatrix}
+0 & \dots & c & d
+\end{bmatrix}
+\begin{bmatrix}
+u_0^n \\ u_1^n \\ \vdots \\ u_{M}^n
+\end{bmatrix} + f(x_{M},t_n)
+$$
+Dot products of the vector $\mathbf{u}^n$ with many different vectors is a matrix multiplication resulting in a vector $\mathbf{u}^{n+1}$.
+
+The source terms can be factored out as a vector addition.
+$$
+\mathbf{u}^{n+1}=
+\begin{bmatrix}
+d & c & 0 & 0 & \dots & 0 \\
+c & d & c & 0 & \dots & 0 \\
+\vdots & \vdots & \vdots & \vdots & \vdots & \vdots \\
+0 & \dots & 0 & c & d & c \\
+0 & \dots & 0 & 0 & c & d
+\end{bmatrix}
+\mathbf{u}^n +
+\begin{bmatrix}
+f(x_0,t_n) \\
+\vdots \\
+f(x_{M},t_n)
+\end{bmatrix}
+$$
+This matrix is a tridiagonal matrix, which we can construct in numpy as the sum of offset diagonal matrices.

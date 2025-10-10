@@ -205,8 +205,8 @@ async function renderProblem(problem) {
     case "ProjectEuler": {
       return renderEulerProblem(problem);
     }
-    case "JustLaTeX": {
-      return renderJustLatex(problem);
+    case "Misc": {
+      return renderMisc(problem);
     }
     // default, just try to render it
     default: {
@@ -363,7 +363,7 @@ async function renderEulerProblem(problem) {
   return div;
 }
 
-async function renderJustLatex(problem) {
+async function renderMisc(problem) {
   const fetchYapPromise = fetch(problem.solutionPath)
 
   // create a div for it
@@ -387,8 +387,19 @@ async function renderJustLatex(problem) {
     }
   }
 
+  // Make an area for the code to be put
+  const codeArea = document.createElement("pre");
+  const code = document.createElement("code");
+  code.className = `language-${problem.lang}`;
+
+  const solutionCodeResult = await fetchSolutionCodePromise;
+  const solutionCodeText = await solutionCodeResult.text();
+  code.textContent = solutionCodeText;
+
+  codeArea.appendChild(code);
   div.appendChild(h2);
   div.appendChild(yapArea);
+  div.appendChild(codeArea);
 
   return div;
 }

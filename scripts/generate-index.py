@@ -119,23 +119,27 @@ def do_euler(problems: list):
             'lang': lang
         })
 
-def do_just_latex(problems: list):
-    problems_dir = Path('problems/just_latex')
+def do_misc(problems: list):
+    problems_dir = Path('problems/misc')
 
     for filepath in problems_dir.rglob('*'):
         date = get_last_commit_date(str(filepath))
+        prob_id = filepath.stem
         prob_text = open(filepath).read()
         prob_name_match = re.match(
             r'\$\$\n% (.*)\n\$\$',
             prob_text
         )
         prob_name = prob_name_match.group(1) if prob_name_match else ""
+        lang = filepath.suffix[1:]  # Remove the leading dot
 
         problems.append({
-            'type': 'JustLaTeX',
+            'type': 'Misc',
             'solutionPath': str(filepath),
+            'yapfilePath': f'yap/project_euler/{prob_id}.tex',
             'probName': prob_name,
             'dateSolved': date,
+            'lang': lang
         })
 
 def main():
@@ -144,7 +148,7 @@ def main():
     problems = []
     do_kattis(problems)
     do_euler(problems)
-    do_just_latex(problems)
+    do_misc(problems)
     
     # Write to index.json
     Path('problems').mkdir(exist_ok=True)
