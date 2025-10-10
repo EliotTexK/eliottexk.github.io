@@ -128,7 +128,7 @@ def do_misc(problems: list):
         prob_text = open(filepath).read()
         yap_text = open(f'yap/misc/{prob_id}.tex').read()
         prob_name_match = re.match(
-            r'\$%(.*)\$',
+            r'<!-- *(.*) *-->',
             yap_text
         )
         prob_name = prob_name_match.group(1) if prob_name_match else ""

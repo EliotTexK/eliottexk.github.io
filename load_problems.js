@@ -264,7 +264,7 @@ async function renderKattisProblem(problem) {
   const yapResult = await fetchYapPromise;
   if (yapResult.ok) {
     const yapText = await yapResult.text();
-    yapArea.textContent = yapText;
+    yapArea.innerHTML = yapText;
     yapArea.style.whiteSpace = 'pre-wrap';
     
     if (window.MathJax) {
@@ -338,7 +338,7 @@ async function renderEulerProblem(problem) {
   const yapResult = await fetchYapPromise;
   if (yapResult.ok) {
     const yapText = await yapResult.text();
-    yapArea.textContent = yapText;
+    yapArea.innerHTML = yapText;
     yapArea.style.whiteSpace = 'pre-wrap';
     
     if (window.MathJax) {
@@ -380,7 +380,7 @@ async function renderMisc(problem) {
   const yapResult = await fetchYapPromise;
   if (yapResult.ok) {
     const yapText = await yapResult.text();
-    yapArea.textContent = yapText;
+    yapArea.innerHTML = yapText;
     yapArea.style.whiteSpace = 'pre-wrap';
     
     if (window.MathJax) {

@@ -2,6 +2,8 @@
 
 2. Generalize so that making new problem types is easier
 
+3. Remove horizontal whitespace at the top of Misc problems
+
 5. Leetcode problem category
 
 Baby emoji [Coin Change](https://leetcode.com/problems/coin-change/) Difficulty Medium
