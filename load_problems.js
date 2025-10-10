@@ -364,7 +364,8 @@ async function renderEulerProblem(problem) {
 }
 
 async function renderMisc(problem) {
-  const fetchYapPromise = fetch(problem.solutionPath)
+  const fetchYapPromise = fetch(problem.yapfilePath)
+  const fetchSolutionCodePromise = fetch(problem.solutionPath)
 
   // create a div for it
   const div = document.createElement("div");

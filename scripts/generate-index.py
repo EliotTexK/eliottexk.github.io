@@ -126,9 +126,10 @@ def do_misc(problems: list):
         date = get_last_commit_date(str(filepath))
         prob_id = filepath.stem
         prob_text = open(filepath).read()
+        yap_text = open(f'yap/misc/{prob_id}.tex').read()
         prob_name_match = re.match(
-            r'\$\$\n% (.*)\n\$\$',
-            prob_text
+            r'\$%(.*)\$',
+            yap_text
         )
         prob_name = prob_name_match.group(1) if prob_name_match else ""
         lang = filepath.suffix[1:]  # Remove the leading dot
@@ -136,7 +137,7 @@ def do_misc(problems: list):
         problems.append({
             'type': 'Misc',
             'solutionPath': str(filepath),
-            'yapfilePath': f'yap/project_euler/{prob_id}.tex',
+            'yapfilePath': f'yap/misc/{prob_id}.tex',
             'probName': prob_name,
             'dateSolved': date,
             'lang': lang
