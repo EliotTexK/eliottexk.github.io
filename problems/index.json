@@ -14,7 +14,7 @@
     "solutionPath": "problems/kattis/annoyedcoworkers.py",
     "yapfilePath": "yap/kattis/annoyedcoworkers.tex",
     "probName": "Annoyed Coworkers",
-    "probDifficulty": "5.7",
+    "probDifficulty": "5.6",
     "probLink": "https://open.kattis.com/problems/annoyedcoworkers",
     "dateSolved": "2024-02-08T12:00:00-06:00",
     "lang": "py"
@@ -24,7 +24,7 @@
     "solutionPath": "problems/kattis/10kindsofpeople.cpp",
     "yapfilePath": "yap/kattis/10kindsofpeople.tex",
     "probName": "10 Kinds of People",
-    "probDifficulty": "4.0",
+    "probDifficulty": "3.9",
     "probLink": "https://open.kattis.com/problems/10kindsofpeople",
     "dateSolved": "2024-01-06T12:00:00-06:00",
     "lang": "cpp"
@@ -74,7 +74,7 @@
     "solutionPath": "problems/kattis/adjoin.cpp",
     "yapfilePath": "yap/kattis/adjoin.tex",
     "probName": "Adjoin the Networks",
-    "probDifficulty": "6.0",
+    "probDifficulty": "5.9",
     "probLink": "https://open.kattis.com/problems/adjoin",
     "dateSolved": "2024-01-04T12:00:00-06:00",
     "lang": "cpp"
@@ -97,6 +97,16 @@
     "probDifficulty": "5",
     "probLink": "https://projecteuler.net/problem=2",
     "dateSolved": "2025-10-06T00:23:41-05:00",
+    "lang": "py"
+  },
+  {
+    "type": "ProjectEuler",
+    "solutionPath": "problems/project_euler/3.py",
+    "yapfilePath": "yap/project_euler/3.tex",
+    "probName": "#3 Largest Prime Factor",
+    "probDifficulty": "5",
+    "probLink": "https://projecteuler.net/problem=3",
+    "dateSolved": "2025-10-10T23:06:01-05:00",
     "lang": "py"
   },
   {
