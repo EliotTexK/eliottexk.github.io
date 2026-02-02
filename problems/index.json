@@ -114,7 +114,6 @@
     "solutionPath": "problems/project_euler/3.py",
     "yapfilePath": "yap/project_euler/3.tex",
     "probName": "#3 Largest Prime Factor",
-    "probDifficulty": "Difficulty not found",
     "probLink": "https://projecteuler.net/problem=3",
     "dateSolved": "2025-10-10T23:06:01-05:00",
     "lang": "py"
@@ -124,7 +123,6 @@
     "solutionPath": "problems/project_euler/1.py",
     "yapfilePath": "yap/project_euler/1.tex",
     "probName": "#1 Multiples of 3 or 5",
-    "probDifficulty": "Difficulty not found",
     "probLink": "https://projecteuler.net/problem=1",
     "dateSolved": "2025-10-05T19:01:31-05:00",
     "lang": "py"
@@ -134,7 +132,6 @@
     "solutionPath": "problems/project_euler/2.py",
     "yapfilePath": "yap/project_euler/2.tex",
     "probName": "#2 Even Fibonacci Numbers",
-    "probDifficulty": "Difficulty not found",
     "probLink": "https://projecteuler.net/problem=2",
     "dateSolved": "2025-10-06T00:23:41-05:00",
     "lang": "py"

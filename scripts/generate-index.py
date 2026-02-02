@@ -49,12 +49,12 @@ def scrape_kattis_name_and_difficulty(prob_id: str):
 
     # Don't draw their ire!
     time.sleep(random.uniform(2.0, 5.0))
-    print(".")
 
     return html.unescape(title), difficulty
 
-def scrape_euler_name_and_difficulty(prob_id: str):
+def scrape_euler_name(prob_id: str):
     url = f'https://projecteuler.net/problem={prob_id}'
+    print(f'scraping URL: {url}')
 
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
@@ -68,23 +68,16 @@ def scrape_euler_name_and_difficulty(prob_id: str):
         raise
 
     # Quick and dirty, but alas, thus is the nature of the scrape 
-    difficulty_match = re.search(
-        r'<br>Difficulty rating: (\d+(?:\.\d+)?)%',
-        html_content
-    )
     title_match = re.search(
         r'<title>(.*?)\s* - Project Euler</title>',
         html_content
     )
-
-    difficulty = difficulty_match.group(1) if difficulty_match else "Difficulty not found"
     title = title_match.group(1) if title_match else "Title not found"
 
     # Don't draw their ire!
     time.sleep(random.uniform(2.0, 5.0))
-    print(".")
 
-    return html.unescape(title), difficulty
+    return html.unescape(title)
 
 def do_kattis(problems: list):
     problems_dir = Path('problems/kattis')
@@ -116,14 +109,13 @@ def do_euler(problems: list):
         prob_id = filepath.stem
         lang = filepath.suffix[1:]  # Remove the leading dot
 
-        prob_name, prob_difficulty = scrape_euler_name_and_difficulty(prob_id)
+        prob_name = scrape_euler_name(prob_id)
 
         problems.append({
             'type': 'ProjectEuler',
             'solutionPath': str(filepath),
             'yapfilePath': f'yap/project_euler/{prob_id}.tex',
             'probName': prob_name,
-            'probDifficulty': prob_difficulty,
             'probLink': f'https://projecteuler.net/problem={prob_id}',
             'dateSolved': date,
             'lang': lang

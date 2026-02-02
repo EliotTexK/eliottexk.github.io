@@ -315,22 +315,7 @@ async function renderEulerProblem(problem) {
   title.appendChild(link);
   title.appendChild(suffix);
 
-  const difficulty = document.createElement("span");
-  difficulty.textContent = `Difficulty: ${problem.probDifficulty}%`;
-
-  // Calculate difficulty hue: green (120) at 0.0, red (0) at 50.0+
-  const difficultyValue = parseFloat(problem.probDifficulty) || 0;
-  const hue = Math.max(0, 140 - (difficultyValue / 50.0) * 120);
-
-  difficulty.style.backgroundColor = `hsl(${hue}, 70%, 50%)`;
-  difficulty.style.color = "white";
-  difficulty.style.padding = "4px 12px";
-  difficulty.style.borderRadius = "4px";
-  difficulty.style.fontSize = "0.9em";
-  difficulty.style.fontWeight = "bold";
-
   h2.appendChild(title);
-  h2.appendChild(difficulty);
 
   // Render the yap
   const yapArea = document.createElement("div");
