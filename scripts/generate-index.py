@@ -8,8 +8,7 @@ import random
 import time
 import html
 from pathlib import Path
-from urllib.request import urlopen
-from urllib.error import HTTPError
+import requests
 
 def get_last_commit_date(filepath):
     """Get the last commit date for a file in ISO format."""
@@ -22,21 +21,27 @@ def get_last_commit_date(filepath):
 
 def scrape_kattis_name_and_difficulty(prob_id: str):
     url = f"https://open.kattis.com/problems/{prob_id}"
+    print(f'scraping URL: {url}')
+
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+    }
 
     try:
-        with urlopen(url, timeout=10) as response:
-            response = response.read().decode('utf-8')
-    except HTTPError as e:
+        response = requests.get(url, headers=headers, timeout=10)
+        response.raise_for_status()
+        html_content = response.text
+    except requests.HTTPError as e:
         raise
 
     # Quick and dirty, but alas, thus is the nature of the scrape 
     difficulty_match = re.search(
         r'<span[^>]*class="[^"]*difficulty_number[^"]*"[^>]*>(\d+\.?\d*)',
-        response
+        html_content
     )
     title_match = re.search(
         r'<title>(.*?)\s*&ndash;\s*(.*?)</title>',
-        response
+        html_content
     )
 
     difficulty = difficulty_match.group(1) if difficulty_match else "Difficulty not found"
@@ -51,20 +56,25 @@ def scrape_kattis_name_and_difficulty(prob_id: str):
 def scrape_euler_name_and_difficulty(prob_id: str):
     url = f'https://projecteuler.net/problem={prob_id}'
 
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+    }
+
     try:
-        with urlopen(url, timeout=10) as response:
-            response = response.read().decode('utf-8')
-    except HTTPError as e:
+        response = requests.get(url, headers=headers, timeout=10)
+        response.raise_for_status()
+        html_content = response.text
+    except requests.HTTPError as e:
         raise
 
     # Quick and dirty, but alas, thus is the nature of the scrape 
     difficulty_match = re.search(
         r'<br>Difficulty rating: (\d+(?:\.\d+)?)%',
-        response
+        html_content
     )
     title_match = re.search(
         r'<title>(.*?)\s* - Project Euler</title>',
-        response
+        html_content
     )
 
     difficulty = difficulty_match.group(1) if difficulty_match else "Difficulty not found"
