@@ -1,26 +1,6 @@
 [
   {
     "type": "Kattis",
-    "solutionPath": "problems/kattis/champernownecount.py",
-    "yapfilePath": "yap/kattis/champernownecount.tex",
-    "probName": "Champernowne Count",
-    "probDifficulty": "3.3",
-    "probLink": "https://open.kattis.com/problems/champernownecount",
-    "dateSolved": "2023-03-09T12:00:00-06:00",
-    "lang": "py"
-  },
-  {
-    "type": "Kattis",
-    "solutionPath": "problems/kattis/sement.py",
-    "yapfilePath": "yap/kattis/sement.tex",
-    "probName": "Siggi sement",
-    "probDifficulty": "1.6",
-    "probLink": "https://open.kattis.com/problems/sement",
-    "dateSolved": "2026-02-02T14:16:35-06:00",
-    "lang": "py"
-  },
-  {
-    "type": "Kattis",
     "solutionPath": "problems/kattis/adjoin.cpp",
     "yapfilePath": "yap/kattis/adjoin.tex",
     "probName": "Adjoin the Networks",
@@ -31,26 +11,6 @@
   },
   {
     "type": "Kattis",
-    "solutionPath": "problems/kattis/annoyedcoworkers.py",
-    "yapfilePath": "yap/kattis/annoyedcoworkers.tex",
-    "probName": "Annoyed Coworkers",
-    "probDifficulty": "5.3",
-    "probLink": "https://open.kattis.com/problems/annoyedcoworkers",
-    "dateSolved": "2024-02-08T12:00:00-06:00",
-    "lang": "py"
-  },
-  {
-    "type": "Kattis",
-    "solutionPath": "problems/kattis/agamemnonsodyssey.py",
-    "yapfilePath": "yap/kattis/agamemnonsodyssey.tex",
-    "probName": "Agamemnon's Odyssey",
-    "probDifficulty": "4.6",
-    "probLink": "https://open.kattis.com/problems/agamemnonsodyssey",
-    "dateSolved": "2024-02-08T12:00:00-06:00",
-    "lang": "py"
-  },
-  {
-    "type": "Kattis",
     "solutionPath": "problems/kattis/quickscope.cpp",
     "yapfilePath": "yap/kattis/quickscope.tex",
     "probName": "Quickscope",
@@ -58,6 +18,46 @@
     "probLink": "https://open.kattis.com/problems/quickscope",
     "dateSolved": "2024-01-01T12:00:00-06:00",
     "lang": "cpp"
+  },
+  {
+    "type": "Kattis",
+    "solutionPath": "problems/kattis/1dfroggereasy.py",
+    "yapfilePath": "yap/kattis/1dfroggereasy.tex",
+    "probName": "1-D Frogger (Easy)",
+    "probDifficulty": "2.4",
+    "probLink": "https://open.kattis.com/problems/1dfroggereasy",
+    "dateSolved": "2025-10-07T22:19:00-05:00",
+    "lang": "py"
+  },
+  {
+    "type": "Kattis",
+    "solutionPath": "problems/kattis/alicedigital.cpp",
+    "yapfilePath": "yap/kattis/alicedigital.tex",
+    "probName": "Alice in the Digital World",
+    "probDifficulty": "4.1",
+    "probLink": "https://open.kattis.com/problems/alicedigital",
+    "dateSolved": "2024-01-08T12:00:00-06:00",
+    "lang": "cpp"
+  },
+  {
+    "type": "Kattis",
+    "solutionPath": "problems/kattis/champernownecount.py",
+    "yapfilePath": "yap/kattis/champernownecount.tex",
+    "probName": "Champernowne Count",
+    "probDifficulty": "3.3",
+    "probLink": "https://open.kattis.com/problems/champernownecount",
+    "dateSolved": "2023-03-09T12:00:00-06:00",
+    "lang": "py"
+  },
+  {
+    "type": "Kattis",
+    "solutionPath": "problems/kattis/backspace.py",
+    "yapfilePath": "yap/kattis/backspace.tex",
+    "probName": "Backspace",
+    "probDifficulty": "1.1",
+    "probLink": "https://open.kattis.com/problems/backspace",
+    "dateSolved": "2026-02-02T14:16:35-06:00",
+    "lang": "py"
   },
   {
     "type": "Kattis",
@@ -74,39 +74,48 @@
     "solutionPath": "problems/kattis/textureanalysis.py",
     "yapfilePath": "yap/kattis/textureanalysis.tex",
     "probName": "Texture Analysis",
-    "probDifficulty": "3.7",
+    "probDifficulty": "3.5",
     "probLink": "https://open.kattis.com/problems/textureanalysis",
     "dateSolved": "2024-01-03T12:00:00-06:00",
     "lang": "py"
   },
   {
     "type": "Kattis",
-    "solutionPath": "problems/kattis/alicedigital.cpp",
-    "yapfilePath": "yap/kattis/alicedigital.tex",
-    "probName": "Alice in the Digital World",
-    "probDifficulty": "4.0",
-    "probLink": "https://open.kattis.com/problems/alicedigital",
-    "dateSolved": "2024-01-08T12:00:00-06:00",
-    "lang": "cpp"
-  },
-  {
-    "type": "Kattis",
-    "solutionPath": "problems/kattis/backspace.py",
-    "yapfilePath": "yap/kattis/backspace.tex",
-    "probName": "Backspace",
-    "probDifficulty": "1.1",
-    "probLink": "https://open.kattis.com/problems/backspace",
-    "dateSolved": "2026-02-02T14:16:35-06:00",
+    "solutionPath": "problems/kattis/annoyedcoworkers.py",
+    "yapfilePath": "yap/kattis/annoyedcoworkers.tex",
+    "probName": "Annoyed Coworkers",
+    "probDifficulty": "4.7",
+    "probLink": "https://open.kattis.com/problems/annoyedcoworkers",
+    "dateSolved": "2024-02-08T12:00:00-06:00",
     "lang": "py"
   },
   {
     "type": "Kattis",
-    "solutionPath": "problems/kattis/1dfroggereasy.py",
-    "yapfilePath": "yap/kattis/1dfroggereasy.tex",
-    "probName": "1-D Frogger (Easy)",
-    "probDifficulty": "2.6",
-    "probLink": "https://open.kattis.com/problems/1dfroggereasy",
-    "dateSolved": "2025-10-07T22:19:00-05:00",
+    "solutionPath": "problems/kattis/agamemnonsodyssey.py",
+    "yapfilePath": "yap/kattis/agamemnonsodyssey.tex",
+    "probName": "Agamemnon's Odyssey",
+    "probDifficulty": "4.6",
+    "probLink": "https://open.kattis.com/problems/agamemnonsodyssey",
+    "dateSolved": "2024-02-08T12:00:00-06:00",
+    "lang": "py"
+  },
+  {
+    "type": "Kattis",
+    "solutionPath": "problems/kattis/sement.py",
+    "yapfilePath": "yap/kattis/sement.tex",
+    "probName": "Siggi sement",
+    "probDifficulty": "1.6",
+    "probLink": "https://open.kattis.com/problems/sement",
+    "dateSolved": "2026-02-02T14:16:35-06:00",
+    "lang": "py"
+  },
+  {
+    "type": "ProjectEuler",
+    "solutionPath": "problems/project_euler/2.py",
+    "yapfilePath": "yap/project_euler/2.tex",
+    "probName": "#2 Even Fibonacci Numbers",
+    "probLink": "https://projecteuler.net/problem=2",
+    "dateSolved": "2025-10-06T00:23:41-05:00",
     "lang": "py"
   },
   {
@@ -128,12 +137,11 @@
     "lang": "py"
   },
   {
-    "type": "ProjectEuler",
-    "solutionPath": "problems/project_euler/2.py",
-    "yapfilePath": "yap/project_euler/2.tex",
-    "probName": "#2 Even Fibonacci Numbers",
-    "probLink": "https://projecteuler.net/problem=2",
-    "dateSolved": "2025-10-06T00:23:41-05:00",
+    "type": "Misc",
+    "solutionPath": "problems/misc/discrete_diffusion.py",
+    "yapfilePath": "yap/misc/discrete_diffusion.tex",
+    "probName": "Discrete Diffusion ",
+    "dateSolved": "2025-10-09T22:46:36-05:00",
     "lang": "py"
   },
   {
@@ -142,14 +150,6 @@
     "yapfilePath": "yap/misc/better_prime_sieve.tex",
     "probName": "Better Prime Sieve ",
     "dateSolved": "2026-02-02T14:16:35-06:00",
-    "lang": "py"
-  },
-  {
-    "type": "Misc",
-    "solutionPath": "problems/misc/discrete_diffusion.py",
-    "yapfilePath": "yap/misc/discrete_diffusion.tex",
-    "probName": "Discrete Diffusion ",
-    "dateSolved": "2025-10-09T22:46:36-05:00",
     "lang": "py"
   }
 ]
